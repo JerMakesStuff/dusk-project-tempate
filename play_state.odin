@@ -24,7 +24,7 @@ create_play_state :: proc() -> ^PlayState {
 }
 
 play_state_enter :: proc(state:^dusk.State, game:^dusk.Game) -> bool {
-    game.backgroundColor = rl.DARKBLUE
+    game.clear_color = rl.DARKBLUE
     return true
 }
 
@@ -36,8 +36,8 @@ play_state_render :: proc(state:^dusk.State, game:^dusk.Game) {
     game := cast(^TemplateGame)game
     rl.DrawText(
         "TODO: Make Game!",
-        game.screenSize.x / 2 - rl.MeasureText("TODO: Make Game!", 128) / 2,
-        game.screenSize.y / 2 - 64,
+        game.screen_size.x / 2 - rl.MeasureText("TODO: Make Game!", 128) / 2,
+        game.screen_size.y / 2 - 64,
         128,
         rl.WHITE,
     )

@@ -34,16 +34,16 @@ title_screen_enter :: proc(state:^dusk.State, game:^dusk.Game) -> bool {
     state.title_text = strings.clone_to_cstring(game.name, context.allocator)
     state.title_text_font_size = 128
     text_width := rl.MeasureText(state.title_text, state.title_text_font_size)
-    state.title_text_position.x =  game.screenSize.x / 2 - text_width / 2
+    state.title_text_position.x =  game.screen_size.x / 2 - text_width / 2
     state.title_text_position.y = 100
 
     state.press_to_play_text = strings.clone_to_cstring("Press [SPACE BAR] to play!", context.allocator)
     state.press_to_play_text_font_size = 32
     text_width = rl.MeasureText(state.press_to_play_text, state.press_to_play_text_font_size)
-    state.press_to_play_text_position.x = game.screenSize.x / 2 - text_width / 2
-    state.press_to_play_text_position.y = game.screenSize.y - state.press_to_play_text_font_size - 80
+    state.press_to_play_text_position.x = game.screen_size.x / 2 - text_width / 2
+    state.press_to_play_text_position.y = game.screen_size.y - state.press_to_play_text_font_size - 80
 
-    game.backgroundColor = rl.DARKPURPLE
+    game.clear_color = rl.DARKPURPLE
 
     return true
 }
